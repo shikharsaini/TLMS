@@ -3,6 +3,8 @@ import { useRef } from "react";
 // import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
+import getUuidByString from "uuid-by-string";
+import { GoogleLogin } from "react-google-login";
 import "./SignUp.css";
 const SignUp = () => {
   const emailValueRef = useRef();
@@ -15,9 +17,21 @@ const SignUp = () => {
 
   const history = useNavigate();
   const redirect = () => {
-    const val = emailValueRef.current.value.substring(1, 3);
-    localStorage.setItem("email", JSON.stringify(val));
+    const val = emailValueRef.current.value;
+    // .substring(1, 3);
+    const uuidHash = getUuidByString(val);
+
+    localStorage.setItem("email", uuidHash);
+
     history("/orders");
+  };
+  const responseGoogle = (response) => {
+    console.log(response);
+    localStorage.setItem("email", response.googleId);
+    history("/orders");
+  };
+  const responseGoogl = (response) => {
+    console.log(response);
   };
   return (
     <Fragment>
@@ -70,11 +84,20 @@ const SignUp = () => {
               {/* type="submit" */}
               <Link to="/orders">Create Account</Link>
             </button>
+
             {/* <p class="animation a5"><a href="#"></a></p> */}
             <p className="animation a7">
               <Link to="/login">Already a Member? Log In</Link>
             </p>
             {/* <button class="animation a6">SIGN-UP</button> */}
+            <GoogleLogin
+              className="animation a7"
+              clientId="975112296299-s33sdv53ukptvmg2g3vulc268rboa5qi.apps.googleusercontent.com"
+              buttonText="SignUp with Google"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogl}
+              cookiePolicy="single_host_origin"
+            />
           </div>
         </div>
         <div className="right-section" />

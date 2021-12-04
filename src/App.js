@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import AllQuotes from "./Pages/AllQuotes";
+import { GoogleLogin } from "react-google-login";
 // import NewQuote from "./Pages/NewQuote";
 // import QuoteDetail from "./Pages/QuoteDetail";
 // import NotFound from "./Pages/NotFound";
@@ -37,7 +38,7 @@ function App() {
             <Route path="/orders/:quoteId/*" element={<QuoteDetail />} />
             <Route path="/new-order" element={<NewQuote />} />
 
-            {/* <Route path="*" element={<NotFound />} /> */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </Layout>

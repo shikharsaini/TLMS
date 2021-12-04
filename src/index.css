@@ -93,6 +93,7 @@ body {
   color: white;
 }
 .noquote {
+  /* font-size: 4rem; */
   height: 20rem;
   margin: auto;
   display: flex;

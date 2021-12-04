@@ -11,9 +11,9 @@ const NotFound = () => {
       {/* </button> */}
       {/* </div> */}
       <div className="noquote">
-        <p>No orders found!</p>
-        <Link className="btn" to="/orders">
-          GO HOME
+        <p>What Are U Looking For Son!</p>
+        <Link className="btn" to="/login">
+          LOGIN?
         </Link>
       </div>
     </div>

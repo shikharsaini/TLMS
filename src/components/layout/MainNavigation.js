@@ -19,30 +19,39 @@ const MainNavigation = () => {
       <nav className={classes.nav}>
         <ul>
           <li>
-            <NavLink
-              to="/orders"
-              className={(navData) => (navData.isActive ? classes.active : "")}
-            >
-              All Orders
-            </NavLink>
+            {localStorage.getItem("email") && (
+              <NavLink
+                to="/orders"
+                className={(navData) =>
+                  navData.isActive ? classes.active : ""
+                }
+              >
+                All Orders
+              </NavLink>
+            )}
           </li>
           <li>
-            <NavLink
-              to="/new-order"
-              className={(navData) => (navData.isActive ? classes.active : "")}
-            >
-              Create Order
-            </NavLink>
+            {localStorage.getItem("email") && (
+              <NavLink
+                to="/new-order"
+                className={(navData) =>
+                  navData.isActive ? classes.active : ""
+                }
+              >
+                Create Order
+              </NavLink>
+            )}
           </li>
           <li>
             <NavLink
               to="/login"
               className={(navData) => (navData.isActive ? classes.active : "")}
             >
-              <button className="btn--flat2" onClick={logout}>
-                {" "}
-                Log Out
-              </button>
+              {localStorage.getItem("email") && (
+                <button className="btn--flat2" onClick={logout}>
+                  Log Out
+                </button>
+              )}
             </NavLink>
           </li>
           {/* <li>

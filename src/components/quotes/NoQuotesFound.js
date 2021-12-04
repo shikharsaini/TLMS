@@ -6,9 +6,9 @@ const NoQuotesFound = () => {
   return (
     <div className={classes.noquotes}>
       <p>No orders found!</p>
-      <Link className="btn" to="/new-order">
+      {/* <Link className="btn" to="/new-order">
         Create an Order
-      </Link>
+      </Link> */}
     </div>
   );
 };
