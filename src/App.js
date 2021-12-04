@@ -47,3 +47,7 @@ function App() {
 }
 
 export default App;
+
+// "homepage": "http://kash1sh.github.io/thaparlms",
+// "predeploy": "npm run build",
+//     "deploy": "gh-pages -d build",
