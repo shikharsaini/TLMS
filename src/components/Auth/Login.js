@@ -4,20 +4,23 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import getUuidByString from "uuid-by-string";
 import { GoogleLogin } from "react-google-login";
+import { useState } from "react";
 import "./Login.css";
 const Login = () => {
   const emailValueRef = useRef();
   const history = useNavigate();
+  const [uservalue,setuservalue]=useState();
   const redirect = () => {
-    // console.log("HRLL");
-    // console.log(emailValueRef.current.value);
+    const userValue=document.getElementById('User').value;
     const val = emailValueRef.current.value;
-    // .substring(1, 3);
     const uuidHash = getUuidByString(val);
-
     localStorage.setItem("email", uuidHash);
-
+    localStorage.setItem("userValue", userValue);
+    setuservalue(localStorage.getItem("userValue"));
+    if(userValue=='Student')
     history("/orders");
+    else
+    history("/EmployeeOrders");
   };
   const responseGoogle = (response) => {
     console.log(response);
@@ -54,24 +57,22 @@ const Login = () => {
               className="form-field animation a4"
               placeholder="Password"
             />
+            <select id="User" className="form-field animation a4" >
+              <option value="Student" className="form-field"  >Student</option>
+              <option value="Employee" className="form-field">Employee</option>
+            </select>
             <p className="animation a5">
-              {/* <a href="#">Forgot Password</a> */}
             </p>
-            {/* <button class="log animation a6">LOGIN</button> */}
             <button
               id="t5"
               className="btn sign animation a6"
               onClick={redirect}
             >
-              {/* type="submit" */}
-              {/* <Link to="/orders"></Link>; */}
               LOGIN
             </button>
-            {/* <p class="animation a5"><a href="#"></a></p> */}
             <p className="animation a7">
               <Link to="/signup">New Here? Sign Up</Link>
             </p>
-            {/* <button class="animation a6">SIGN-UP</button> */}
           </div>
           <GoogleLogin
             className="animation a7"

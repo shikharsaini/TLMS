@@ -14,8 +14,6 @@ const NewQuote = () => {
   const AddQuoteHandler = (quoteData) => {
     console.log(quoteData);
     sendRequest(quoteData);
-    // history.push("/quotes");
-    // history("/quotes");
   };
   return (
     <QuoteForm isLoading={status === "pending"} onAddQuote={AddQuoteHandler} />

@@ -16,7 +16,7 @@ const MainNavigation = () => {
           <li>
             {localStorage.getItem("email") && (
               <NavLink
-                to="/orders"
+                to="/EmployeeOrders"
                 className={(navData) =>
                   navData.isActive ? classes.active : ""
                 }
@@ -33,7 +33,7 @@ const MainNavigation = () => {
                   navData.isActive ? classes.active : ""
                 }
               >
-                Create Order
+                View Comments
               </NavLink>
             )}
           </li>
@@ -49,29 +49,6 @@ const MainNavigation = () => {
               )}
             </NavLink>
           </li>
-          {/* <li>
-            {!isLoading && !user && (
-              <button className="btn2" onClick={() => logout()}>
-                Log Out
-              </button>
-            )}
-          </li>
-          <li>
-            {!isLoading && !user && (
-              <button className="btn2" onClick={() => loginWithRedirect()}>
-                Log In
-              </button>
-            )}
-          </li> */}
-          <li>
-            {/* {!isLoading && !user && (
-              <button className="btn2" onClick={() => loginWithRedirect()}>
-                Log In
-              </button>
-            )} */}
-          </li>
-          {/* nfk */}
-          {/* {user} */}
         </ul>
       </nav>
     </header>

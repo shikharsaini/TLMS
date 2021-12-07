@@ -15,6 +15,7 @@ const HighlightedQuote = (props) => {
         <figcaption>Sweaters : {props.sweater}</figcaption>
         <figcaption>BedSheets : {props.bedsheet}</figcaption>
         <figcaption>Shorts : {props.short}</figcaption>
+        <figcaption>Status : {props.status}</figcaption>
       </div>
     </figure>
   );

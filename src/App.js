@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import AllQuotes from "./Pages/AllQuotes";
+import AllQuotesEmployee from "./Pages/AllQuotesEmployee";
 import { GoogleLogin } from "react-google-login";
 // import NewQuote from "./Pages/NewQuote";
 // import QuoteDetail from "./Pages/QuoteDetail";
@@ -34,21 +35,16 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/orders" />} />
             <Route path="/orders" element={<AllQuotes />} />
-
+            <Route path="/EmployeeOrders" element={<AllQuotesEmployee />} />
+            <Route path="/EmployeeOrders/:quoteId/*" element={<QuoteDetail />} />
             <Route path="/orders/:quoteId/*" element={<QuoteDetail />} />
             <Route path="/new-order" element={<NewQuote />} />
-
-            <Route path="*" element={<NotFound />} />
+            {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
         </Suspense>
       </Layout>
     </div>
-    // </Auth0ProviderWithHistory>
   );
 }
 
 export default App;
-
-// "homepage": "http://kash1sh.github.io/thaparlms",
-// "predeploy": "npm run build",
-//     "deploy": "gh-pages -d build",

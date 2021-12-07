@@ -1,18 +1,14 @@
 import { useEffect } from "react";
 import QuoteList from "../components/quotes/QuoteList";
+import OrderListEmployee from "../components/quotes/OrderListEmployee";
 import LoadingSpinner from "../components/UI/LoadingSpinner";
 import NoQuotesFound from "../components/quotes/NoQuotesFound";
 import useHttp from "../Hooks/use-http";
 import { getAllQuotes } from "../lib/api";
 import { getAllNames } from "../lib/api";
-// const DUMMY_QUOTES = [
-//   { id: "q1", author: "Max", text: "Learning React is fun!" },
-//   { id: "q2", author: "Maximilian", text: "Learning React is great!" },
-// ];
 
 const AllQuotes = () => {
-  const { sendRequest, status, data, error } = useHttp(getAllQuotes, true);
-  //const { sendRequest, status, data, error } = useHttp(getAllNames, true);
+  const { sendRequest, status, data, error } = useHttp(getAllNames, true);
   useEffect(() => {
     sendRequest();
   }, [sendRequest]);
@@ -32,6 +28,6 @@ const AllQuotes = () => {
     return <NoQuotesFound />;
   }
 
-  return <QuoteList orders={data} />;
+  return <OrderListEmployee orders={data} />;
 };
 export default AllQuotes;

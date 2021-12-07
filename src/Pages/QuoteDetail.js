@@ -48,11 +48,6 @@ const QuoteDetail = () => {
   if (!data.date) {
     return <p>No orders Found!</p>;
   }
-  // console.log(data);
-  // const quote = data.find((quote) => quote.id === params.quoteId);
-  // if (!quote) {
-  //   return <p>Nooooo quote found!</p>;
-  // }
   return (
     <section>
       <HighlightedQuote
@@ -66,19 +61,8 @@ const QuoteDetail = () => {
         sweater={data.sweater}
         towel={data.towel}
         bedsheet={data.bedsheet}
+        status={data.status}
       />
-      {/* <button> */}
-      {/* <div className="bt2"> */}
-      {/* <button className="btn" onClick={dropHandler}> */}
-      {/* <Link className="btn" to="/orders"> */}
-      {/* <h5 className="centered"> Drop Order</h5> */}
-      {/* <p className="centered">Drop Order</p> */}
-      {/* Drop Order */}
-      {/* </Link> */}
-      {/* </button> */}
-      {/* </div> */}
-      {/* </button> */}
-      {/* <Link to="comments">Comments</Link> */}
       <Routes>
         <Route
           path="/"
@@ -90,10 +74,6 @@ const QuoteDetail = () => {
             </div>
           }
         />
-
-        {/* </Routes> */}
-
-        {/* <Routes> */}
         <Route path="comments" element={<Comments />} />
       </Routes>
     </section>

@@ -159,3 +159,6 @@ body {
     width: 460px;
   }
 }
+select option{
+  font-size: 17px;
+}

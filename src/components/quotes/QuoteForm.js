@@ -17,7 +17,6 @@ const QuoteForm = (props) => {
   const towelInputRef = useRef();
   const bedsheetInputRef = useRef();
   const shortInputRef = useRef();
-  // const dateInputRef = useRef();
 
   var objToday = new Date(),
     // weekday = [
@@ -87,8 +86,6 @@ const QuoteForm = (props) => {
   // const d = new Date();
   function submitFormHandler(event) {
     event.preventDefault();
-
-    // const enteredAuthor = authorInputRef.current.value;
     const enteredText = textInputRef.current.value;
     const enteredShirt = shirtInputRef.current.value;
     const enteredTshirt = tshirtInputRef.current.value;
@@ -98,7 +95,7 @@ const QuoteForm = (props) => {
     const enteredTowel = towelInputRef.current.value;
     const enteredShort = shortInputRef.current.value;
     const enteredBedsheet = bedsheetInputRef.current.value;
-    // const enteredDate = dateInputRef.current.value;
+    const defaultStatus = "Pending Approval";
     const totalVal =
       +enteredShirt +
       +enteredShort +
@@ -109,7 +106,6 @@ const QuoteForm = (props) => {
       +enteredBedsheet;
 
     console.log(totalVal);
-    // optional: Could validate here
 
     props.onAddQuote({
       shirt: enteredShirt,
@@ -123,6 +119,7 @@ const QuoteForm = (props) => {
       date: today,
       request: enteredText,
       total: totalVal,
+      status: defaultStatus,
     });
   }
   const formFocusedHandler = () => {
@@ -235,17 +232,6 @@ const QuoteForm = (props) => {
               ref={shortInputRef}
             />
           </div>
-
-          {/* <div className={classes.control}>
-            <label htmlFor="date">Date</label>
-            <input
-              type="date"
-              // min="1"
-              // max="9"
-              id="date"
-              ref={dateInputRef}
-            />
-          </div> */}
 
           <div className={classes.control}>
             <label htmlFor="text">Special Requests</label>

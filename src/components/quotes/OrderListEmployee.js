@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import QuoteItem from "./QuoteItem";
+import OrderItemEmployee from "./OrderItemEmployee";
 import classes from "./QuoteList.module.css";
 const sortQuotes = (quotes, ascending) => {
   return quotes.sort((quoteA, quoteB) => {
@@ -31,7 +31,7 @@ const QuoteList = (props) => {
       </div>
       <ul className={classes.list}>
         {sortedQuotes.map((quote) => (
-          <QuoteItem
+          <OrderItemEmployee
             key={quote.id}
             id={quote.id}
             date={quote.date}

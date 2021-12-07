@@ -6,9 +6,7 @@ import App from "./App";
 
 ReactDOM.render(
   <BrowserRouter>
-    {/* <Auth0ProviderWithHistory> */}
     <App />
-    {/* </Auth0ProviderWithHistory> */}
   </BrowserRouter>,
   document.getElementById("root")
 );

@@ -8,10 +8,6 @@ const NewCommentForm = (props) => {
   const commentTextRef = useRef();
   const { sendRequest, status, error } = useHttp(addComment);
   const params = useParams();
-  // const history = useNavigate();
-  // useEffect(() => {
-  //   history(`/quotes/${params.quoteId}/comments`);
-  // }, [history, params.quoteId]);
   const { onAddedComment } = props;
 
   useEffect(() => {
@@ -22,17 +18,11 @@ const NewCommentForm = (props) => {
 
   const submitFormHandler = (event) => {
     event.preventDefault();
-    // optional: Could validate here
-
-    // send comment to server
-    // console.log(commentTextRef.current.value);
-    // sendRequest(commentTextRef.current.value);
     sendRequest({
       commentData: { text: commentTextRef.current.value },
       quoteId: params.quoteId,
     });
     commentTextRef.current.value = "";
-    // console.log(error);
   };
 
   return (
